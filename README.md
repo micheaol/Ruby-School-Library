@@ -64,7 +64,7 @@
 
 <!-- [![Capstone][product-screenshot]](https://example.com) -->
 
-In this project, I bouild an school library app using ruby.
+In this project, I build a school library app using ruby.
 
 ### Built With
 
