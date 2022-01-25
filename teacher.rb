@@ -10,6 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-teacher = Teacher.new('vet', 34, 'john')
-puts teacher.inspect
