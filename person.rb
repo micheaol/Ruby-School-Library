@@ -21,8 +21,7 @@ class Person
   end
 
   def validate_name
-    corrected_name = @corrector.correct_name(@name)
-    @name = corrected_name
+    @name = @corrector.correct_name(@name)
   end
 
   private
