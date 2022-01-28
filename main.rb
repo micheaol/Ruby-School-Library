@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require './app/book'
 require './app/person'
 require './app/teacher'
