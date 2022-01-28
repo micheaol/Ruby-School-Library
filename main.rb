@@ -35,9 +35,13 @@ def list_persons(persons)
 end
 
 def list_rental_id(persons)
-  print 'ID of person: '
-  person_id = gets.chomp.to_i
-  puts 'Rentals:'
+  if persons.empty?
+    puts "You don't have any client, please create a client first"
+  else
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
+    puts 'Rentals:'
+  end
 
   persons.each do |person|
     if person.id == person_id.to_i
@@ -134,8 +138,8 @@ def main
     when '6'
       list_rental_id(persons)
     when '7'
-      puts 'Bye Bye !!'
       choice = false
+      puts 'Bye Bye !!'
     else
       puts 'Invalid choice'
     end
