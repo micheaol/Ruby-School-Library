@@ -36,7 +36,7 @@ end
 
 def list_rental_id(persons)
   if persons.empty?
-    puts "You don't have any client, please create a client first"
+    puts "You don't have any clients, please create a client first"
   else
     print 'ID of person: '
     person_id = gets.chomp.to_i
@@ -120,6 +120,8 @@ def create_rental(books, persons)
 end
 
 def main
+  puts
+  puts '----| Welcome to School Library App!! | ----'
   books = []
   persons = []
   choice = true
