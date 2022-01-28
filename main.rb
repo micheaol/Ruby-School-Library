@@ -27,7 +27,7 @@ class MyLibrary
   end
 
   def list_rental_id
-    puts 'ID of person: '
+    print 'ID of person: '
     person_id = gets.chomp.to_i
 
     puts 'Rentals:'
@@ -39,6 +39,7 @@ class MyLibrary
     person_rent.each do |details|
       print "Date: #{details.date}, Book \'#{details.book.title}\' by #{details.book.author}"
     end
+    puts
   end
 
   def create_person
