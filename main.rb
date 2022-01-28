@@ -5,6 +5,7 @@ require './app/teacher'
 require './app/student'
 require './app/rental'
 
+# rubocop:disable Metrics/MethodLength
 class MyLibrary
   def initialize
     @persons = []
@@ -127,6 +128,7 @@ class MyLibrary
   end
 end
 
+# rubocop:disable Metrics/CyclomaticComplexity
 def main
   puts 'Welcome to school library App!'
   app = MyLibrary.new
@@ -166,5 +168,7 @@ def main
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/MethodLength
 
 main
