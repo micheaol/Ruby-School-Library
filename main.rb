@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require './classes/book'
 require './classes/person'
 require './classes/teacher'
