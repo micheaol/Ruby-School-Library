@@ -25,6 +25,7 @@ def list_books(books)
   books.each_with_index do |book, i|
     puts "#{i}) Title: #{book.title}, Author: #{book.author}"
   end
+  puts
 end
 
 def list_persons(persons)
@@ -32,6 +33,7 @@ def list_persons(persons)
   persons.each_with_index do |person, i|
     puts "#{i}) Name: #{person.name}, Age: #{person.age}, Id: #{person.id}"
   end
+  puts
 end
 
 def list_rental_id(persons)
@@ -40,10 +42,12 @@ def list_rental_id(persons)
   puts 'Rentals:'
 
   persons.each do |person|
-    next unless person.id == person_id.to_i
-
-    person.rentals.each do |rental|
-      puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+    if person.id == person_id.to_i
+      person.rentals.each do |rental|
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    else
+      puts 'Person no found'
     end
   end
   puts
@@ -59,7 +63,6 @@ def create_person(persons)
   if student_or_teacher == '1'
     print 'Has parent permission? [Y/N]:'
     has_permission = gets.chomp.downcase
-    puts has_permission
     student_permission = has_permission == 'y'
   else
     print 'Specialization: '
@@ -90,11 +93,14 @@ end
 def create_rental(books, persons)
   if books.empty? && persons.empty?
     puts "You don't have any books and you don't have any person"
+    puts
     puts 'Please create a book:'
     create_book(books)
+    puts
     puts 'Please create a person:'
     create_person(persons)
   end
+  puts
   puts 'Select a book from the following list by number'
   list_books(books)
   book_index = gets.chomp.to_i
