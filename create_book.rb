@@ -1,9 +1,8 @@
+require_relative 'book_inputs'
+
 class CreateBook
   def self.create_book(books)
-    print 'Title: '
-    book_title = gets.chomp
-    print 'Author: '
-    book_author = gets.chomp
+    book_title, book_author = BookInputs.book_inputs
     books << Book.new(book_title, book_author)
     puts 'Book created succesfully'
   end
