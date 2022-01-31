@@ -79,7 +79,7 @@ In this project, I build a school library app using ruby.
 
 ### Prerequisites
 
-* No prerequisites needed for this project.
+* Ruby 3.1.0
  <!--
 This is an example of how to list things you need to use the software and how to install them.
 * npm
@@ -92,11 +92,11 @@ This is an example of how to list things you need to use the software and how to
 <!-- 1. Get a free API Key at [https://example.com](https://example.com) -->
 1. Clone the repo
    ```sh
-   git clone git@github.com:jchernandez87/Capstone-project-concert.git
+   git clone git@github.com:jchernandez87/Ruby-School-Library.git
    ```
-2. Install NPM packages
+2. Install GEMS
    ```sh
-   npm install
+   bundle install
    ```
 <!-- 4. Enter your API in `config.js`
    ```JS
