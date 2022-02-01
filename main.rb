@@ -1,8 +1,3 @@
-require './classes/book'
-require './classes/person'
-require './classes/teacher'
-require './classes/student'
-require './classes/rental'
 require_relative 'list_books'
 require_relative 'list_persons'
 require_relative 'list_rental_id'
@@ -54,6 +49,7 @@ def main
       ListRentalId.list_rental_id(persons)
     when '7'
       File.write('persons.json', JSON.dump(persons))
+      File.write('books.json', JSON.dump(books))
       choice = false
       puts 'Bye Bye !!'
     else
