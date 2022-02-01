@@ -11,7 +11,9 @@ class CreatePerson
       persons << person
       puts 'Student created succesfully'
     when '2'
-      persons << Teacher.new(specialization, age, name)
+      teacher_temp = Teacher.new(specialization, age.to_i, name)
+      teacher = {'json_class' => 'Teacher', 'specialization' => teacher_temp.specialization, 'age' => teacher_temp.age, 'name' => teacher_temp.name, 'id' => teacher_temp.id}
+      persons << teacher
       puts 'Teacher created succesfully'
     else
       puts 'Invalid choice'
