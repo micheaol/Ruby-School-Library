@@ -1,5 +1,3 @@
-require 'json'
-
 class PersonRequest
   def self.request_person
     puts 'Do you want to create a student (1) or a teacher (2)? [Inputs the number]:'

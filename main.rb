@@ -9,7 +9,7 @@ require_relative 'list_rental_id'
 require_relative 'create_person'
 require_relative 'create_book'
 require_relative 'create_rental'
-require_relative 'write_test'
+require 'json'
 
 def options
   puts
@@ -31,6 +31,13 @@ def main
   books = []
   persons = []
   choice = true
+
+  file = File.read('persons.json')
+  file_parse = JSON.parse(file)
+  file_parse.each do |person|
+    persons << person
+  end
+
   while choice == true
     case options
     when '1'
@@ -39,7 +46,6 @@ def main
       ListPersons.list_persons(persons)
     when '3'
       CreatePerson.create_person(persons)
-      write(persons)
     when '4'
       CreateBook.create_book(books)
     when '5'
@@ -47,6 +53,7 @@ def main
     when '6'
       ListRentalId.list_rental_id(persons)
     when '7'
+      File.write('persons.json', JSON.dump(persons))
       choice = false
       puts 'Bye Bye !!'
     else
