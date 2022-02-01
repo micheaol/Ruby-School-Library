@@ -9,6 +9,7 @@ require_relative 'list_rental_id'
 require_relative 'create_person'
 require_relative 'create_book'
 require_relative 'create_rental'
+require_relative 'write_test'
 
 def options
   puts
@@ -38,6 +39,7 @@ def main
       ListPersons.list_persons(persons)
     when '3'
       CreatePerson.create_person(persons)
+      write(persons)
     when '4'
       CreateBook.create_book(books)
     when '5'
