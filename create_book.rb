@@ -1,5 +1,5 @@
 require_relative 'book_inputs'
-require_relative 'book'
+require './classes/book'
 
 class CreateBook
   def self.create_book(books)

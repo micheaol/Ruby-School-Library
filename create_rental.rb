@@ -2,6 +2,7 @@ require_relative 'create_book'
 require_relative 'create_person'
 require_relative 'list_books'
 require_relative 'list_persons'
+require './classes/rental'
 
 class CreateRental
   def self.create_rental(books, persons, rentals)

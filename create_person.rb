@@ -1,6 +1,6 @@
 require_relative 'person_request'
-require_relative 'teacher'
-require_relative 'student'
+require './classes/teacher'
+require './classes/student'
 
 class CreatePerson
   def self.create_person(persons)

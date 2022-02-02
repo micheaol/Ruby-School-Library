@@ -26,27 +26,9 @@ def main
   puts '----| Welcome to School Library App!! | ----'
   choice = true
 
-  persons = Loader.json_loader('persons.json')
-  books = Loader.json_loader('books.json')
-  rentals = Loader.json_loader('rentals.json')
-
-  # persons_file = File.read('persons.json')
-  # persons_parse = JSON.parse(persons_file)
-  # persons_parse.each do |person|
-  #   persons << person
-  # end
-
-  # books_file = File.read('books.json')
-  # books_parse = JSON.parse(books_file)
-  # books_parse.each do |book|
-  #   books << book
-  # end
-
-  # rentals_file = File.read('rentals.json')
-  # rentals_parse = JSON.parse(rentals_file)
-  # rentals_parse.each do |rental|
-  #   rentals << rental
-  # end
+  persons = Loader.json_loader('./data/persons.json')
+  books = Loader.json_loader('./data/books.json')
+  rentals = Loader.json_loader('./data/rentals.json')
 
   while choice == true
     case options
@@ -63,9 +45,9 @@ def main
     when '6'
       ListRentalId.list_rental_id(rentals)
     when '7'
-      File.write('persons.json', JSON.dump(persons))
-      File.write('books.json', JSON.dump(books))
-      File.write('rentals.json', JSON.dump(rentals))
+      File.write('./data/persons.json', JSON.dump(persons))
+      File.write('./data/books.json', JSON.dump(books))
+      File.write('./data/rentals.json', JSON.dump(rentals))
       choice = false
       puts 'Bye Bye !!'
     else
