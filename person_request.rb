@@ -9,7 +9,7 @@ class PersonRequest
     if student_or_teacher == '1'
       print 'Has parent permission? [Y/N]:'
       has_permission = gets.chomp.downcase
-      student_permission = has_permission == 'y'
+      student_permission = true if has_permission == 'y'
     else
       print 'Specialization: '
       specialization = gets.chomp
