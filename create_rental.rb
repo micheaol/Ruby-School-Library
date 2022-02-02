@@ -29,7 +29,6 @@ class CreateRental
     rental = { 'json_class' => 'rental', 'date' => rental_temp.date, 'book' => rental_temp.book,
                'person' => rental_temp.person }
     rentals << rental
-    puts rental_temp.inspect
     puts
     puts "Date: #{rental_date}"
     puts 'Rental created succesfully'
