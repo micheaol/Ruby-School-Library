@@ -24,7 +24,9 @@ class CreateRental
     person_index = gets.chomp.to_i
     print 'Date: '
     rental_date = gets.chomp
-    Rental.new(date: rental_date, book: books[book_index], person: persons[person_index])
+    rental_temp = Rental.new(date: rental_date, book: books[book_index], person: persons[person_index])
+    rental = {"date" => rental_temp.date, "book" => rental_temp.book, "person" => rental_temp.person}
+    rentals << rental
     puts
     puts "Date: #{rental_date}"
     puts 'Rental created succesfully'
