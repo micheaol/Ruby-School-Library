@@ -1,9 +1,9 @@
 class ListBooks
   def self.list_books(books)
     puts "You don't have any books" if books.empty?
-    books.each_with_index do |book, i|
-      puts "#{i}) Title: #{book.title}, Author: #{book.author}"
-    end
+    file = File.read('books.json')
+     hash = JSON.parse(file)
+     hash.each do | book | puts " Title: #{book["book_title"]}, Author: #{book["book_author"]}" end
     puts
   end
 end

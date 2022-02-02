@@ -36,6 +36,11 @@ def main
     persons << person
   end
 
+  book_file = File.read('books.json')
+  book_parse = JSON.parse(book_file)
+  book_parse.each do |book|
+    books << book
+  end
   while choice == true
     case options
     when '1'
@@ -52,6 +57,7 @@ def main
       ListRentalId.list_rental_id(persons)
     when '7'
       File.write('persons.json', JSON.dump(persons))
+      File.write('books.json', JSON.dump(books))
       choice = false
       puts 'Bye Bye !!'
     else
