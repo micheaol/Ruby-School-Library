@@ -1,1 +1,1 @@
-null
+[{"json_class":"rental","date":"04/12/1600","book":{"json_class":"book","title":"Lord of the rings 2","author":"Tolkien","id":1896},"person":{"json_class":"Student","age":48,"parent_permission":true,"name":"Mark","id":151}}]
