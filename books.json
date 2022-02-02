@@ -1,8 +1,1 @@
-[
-  {
-    "json_clss": "book",
-    "title": "Lord of the rings",
-    "author": "Tolkien",
-    "id": 3928
-  }
-]
+[{"json_class":"book","title":"Tolkien","author":"Tolkien","id":1858}]

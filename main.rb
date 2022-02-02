@@ -4,6 +4,7 @@ require_relative 'list_rental_id'
 require_relative 'create_person'
 require_relative 'create_book'
 require_relative 'create_rental'
+require_relative 'loader'
 require 'json'
 
 def options
@@ -23,15 +24,29 @@ end
 def main
   puts
   puts '----| Welcome to School Library App!! | ----'
-  books = []
-  persons = []
   choice = true
 
-  file = File.read('persons.json')
-  file_parse = JSON.parse(file)
-  file_parse.each do |person|
-    persons << person
-  end
+  persons = Loader.json_loader('persons.json')
+  books = Loader.json_loader('books.json')
+  rentals = Loader.json_loader('rentals.json')
+
+  # persons_file = File.read('persons.json')
+  # persons_parse = JSON.parse(persons_file)
+  # persons_parse.each do |person|
+  #   persons << person
+  # end
+
+  # books_file = File.read('books.json')
+  # books_parse = JSON.parse(books_file)
+  # books_parse.each do |book|
+  #   books << book
+  # end
+
+  # rentals_file = File.read('rentals.json')
+  # rentals_parse = JSON.parse(rentals_file)
+  # rentals_parse.each do |rental|
+  #   rentals << rental
+  # end
 
   while choice == true
     case options
@@ -44,12 +59,13 @@ def main
     when '4'
       CreateBook.create_book(books)
     when '5'
-      CreateRental.create_rental(books, persons)
+      CreateRental.create_rental(books, persons, rentals)
     when '6'
-      ListRentalId.list_rental_id(persons)
+      ListRentalId.list_rental_id(rentals)
     when '7'
       File.write('persons.json', JSON.dump(persons))
       File.write('books.json', JSON.dump(books))
+      File.write('rentals.json', JSON.dump(rentals))
       choice = false
       puts 'Bye Bye !!'
     else

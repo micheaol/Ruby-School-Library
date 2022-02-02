@@ -4,7 +4,7 @@ require_relative 'list_books'
 require_relative 'list_persons'
 
 class CreateRental
-  def self.create_rental(books, persons)
+  def self.create_rental(books, persons, rentals)
     if books.empty? && persons.empty?
       puts "You don't have any books and you don't have any person"
       puts
@@ -24,7 +24,11 @@ class CreateRental
     person_index = gets.chomp.to_i
     print 'Date: '
     rental_date = gets.chomp
-    Rental.new(date: rental_date, book: books[book_index], person: persons[person_index])
+    rental_temp = Rental.new(date: rental_date, book: books[book_index], person: persons[person_index])
+    rental = { 'json_class' => 'rental', 'date' => rental_temp.date, 'book' => rental_temp.book,
+               'person' => rental_temp.person }
+    rentals << rental
+    puts rental_temp.inspect
     puts
     puts "Date: #{rental_date}"
     puts 'Rental created succesfully'
