@@ -1,10 +1,9 @@
-require 'json'
 class ListPersons
   def self.list_persons(persons)
     puts "You don't have any person" if persons.empty?
-    file = File.read('persons.json')
-     hash = JSON.parse(file)
-     hash.each do | el | puts "[#{el["json_class"]}], age: #{el["age"]}, name: #{el["name"]}" end
+    persons.each_with_index do |person, i|
+      puts "#{i}) [#{person['json_class']}] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
+    end
     puts
   end
 end

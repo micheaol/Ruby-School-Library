@@ -1,22 +1,16 @@
 class ListRentalId
-  def self.list_rental_id(persons)
-    if persons.empty?
-      puts "You don't have any clients, please create a client first"
-    else
-      print 'ID of person: '
-      person_id = gets.chomp.to_i
-      puts 'Rentals:'
-    end
+  def self.list_rental_id(rentals)
+    print 'ID of person: '
+    person_id = gets.chomp.to_i
+    puts 'Rentals: '
+    persons_found = 0
+    rentals.each do |rental|
+      next unless rental['person']['id'] == person_id.to_i
 
-    persons.each do |person|
-      if person.id == person_id.to_i
-        person.rentals.each do |rental|
-          puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
-        end
-      else
-        puts 'Person no found'
-      end
+      puts "Date: #{rental['date']}, Book: \"#{rental['book']['title']}\" by #{rental['book']['author']}"
+      persons_found += 1
     end
+    puts 'Person not found' if persons_found.zero?
     puts
   end
 end
